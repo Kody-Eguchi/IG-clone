@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   devise_scope :user do
     get '/users', to: 'devise/registrations#new'
     get '/users/password', to: 'devise/passwords#new'
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   end
   devise_for :users
   get 'home/about'
+  get 'posts/myposts'
   resources :posts
   root "posts#index"
 end
